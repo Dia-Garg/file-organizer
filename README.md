@@ -18,3 +18,8 @@ A simple Python automation script that organizes files in a folder based on file
 - Python
 - os module
 - shutil module
+
+## Future Improvements
+- Add error handling for files without extensions
+- Add option to organize by date
+- Add logging system
