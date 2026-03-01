@@ -9,18 +9,23 @@ def organize_folder(folder_path):
     for file in os.listdir(folder_path):
         file_full_path = os.path.join(folder_path, file)
 
-    if os.path.isfile(file_full_path):
-        extension = file.split(".")[-1]
+        if os.path.isfile(file_full_path):
 
-        new_folder = os.path.join(folder_path, extension)
+            # Check if file has extension
+            if "." in file:
+                extension = file.split(".")[-1].lower()
+            else:
+                extension = "no_extension"
 
-        if not os.path.exists(new_folder):
-            os.makedirs(new_folder)
+            new_folder = os.path.join(folder_path, extension)
 
-        shutil.move(file_full_path, os.path.join(new_folder, file))
+            if not os.path.exists(new_folder):
+                os.makedirs(new_folder)
 
-print("File organized successfully.")
+            shutil.move(file_full_path, os.path.join(new_folder, file))
 
-if __name__=="__main__":
-    folder = input("Enter folder path to organize:")
+    print("Files organized successfully.")
+
+if __name__ == "__main__":
+    folder = input("Enter folder path to organize: ")
     organize_folder(folder)
