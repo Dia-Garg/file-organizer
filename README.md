@@ -23,3 +23,26 @@ A simple Python automation script that organizes files in a folder based on file
 - Add error handling for files without extensions
 - Add option to organize by date
 - Add logging system
+
+## Example
+Before:
+folder/
+- report.pdf
+- image.jpg
+- notes.txt
+- README
+
+After running the script:
+folder/
+- pdf/
+  - report.pdf
+- jpg/
+  - image.jpg
+- txt/
+  - notes.txt
+- no_extension/
+  - README
+
+## Edge Case Handling
+- Files without extension are moved to a `no_extension` folder.
+- Existing folders are skipped safely.
