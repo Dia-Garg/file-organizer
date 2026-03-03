@@ -23,7 +23,7 @@ def organize_folder(folder_path):
                 os.makedirs(new_folder)
 
             shutil.move(file_full_path, os.path.join(new_folder, file))
-        total_files_moved+=1
+            total_files_moved+=1
 
     print("Files organized successfully.")
     print("Total files moved:",total_files_moved)
