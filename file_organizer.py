@@ -11,11 +11,13 @@ def organize_folder(folder_path):
 
         if os.path.isfile(file_full_path):
 
+            name, ext = os.path.splitext(file)
+            
             # Check if file has extension
-            if "." in file:
-                extension = file.split(".")[-1].lower()
-            else:
+            if ext == "":
                 extension = "no_extension"
+            else:
+                extension = ext[1:].lower()
 
             new_folder = os.path.join(folder_path, extension)
 
