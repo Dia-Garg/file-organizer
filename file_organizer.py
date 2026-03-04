@@ -22,8 +22,21 @@ def organize_folder(folder_path):
             if not os.path.exists(new_folder):
                 os.makedirs(new_folder)
 
-            shutil.move(file_full_path, os.path.join(new_folder, file))
+
+            destination = os.path.join(new_folder, file)
+
+            if os.path.exists(destination):
+                name, ext = os.path.splitext(file)
+                counter = 1
+                while os.path.exists(destination):
+                    new_name = f"{name}_{counter}{ext}"
+                    destination = os.path.join(new_folder, new_name)
+                    counter += 1
+
+            shutil.move(file_full_path, destination)
             total_files_moved+=1
+
+
 
     print("Files organized successfully.")
     print("Total files moved:",total_files_moved)
